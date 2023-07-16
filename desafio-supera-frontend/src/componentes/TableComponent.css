@@ -15,3 +15,16 @@
     text-align: center;
     margin-left: 250px;
 }
+.saldo-total{
+    margin-left: 250px;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    background-color: #cbe2b9;       
+}
+.saldo-total-periodo{
+    margin-left: 500px;
+    padding: 5px 10px;
+    border: 1px solid #aca5a5;
+    background-color: rgb(192, 221, 233);
+    
+}

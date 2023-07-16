@@ -75,6 +75,8 @@ const TransferTable = () => {
   return (
     <div>
       <h2 className='text-center'>Transferências</h2>
+      <label className='saldo-total'>Saldo Total: R$ 50,00</label>
+      <label className='saldo-total-periodo'>Saldo no Período: R$ 50,00</label>
       <table className="table table-striped mx-4">
         <thead>
           <tr>
