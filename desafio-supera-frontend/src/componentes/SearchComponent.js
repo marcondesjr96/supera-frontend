@@ -14,7 +14,7 @@ const SearchComponent = () => {
         </div>
         <div className="col">
           <label htmlFor="nome-operador">Nome do Operador Transacionado</label>
-          <input type="text" id="nome-operador" className="form-control form-control-sm" placeholder="Texto" />
+          <input type="text" id="nome-operador" className="form-control form-control-sm" placeholder="Nome do Operador" />
         </div>
         <div className="col">
           <button className="btn btn-primary">Pesquisar</button>

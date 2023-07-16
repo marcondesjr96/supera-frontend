@@ -1,0 +1,17 @@
+.pagination{
+    padding-left: 50px;
+
+}
+.button-anterior{
+    text-align: left;
+    margin-left: 250px;
+}
+.button-proximo{
+    text-align: right;
+    margin-left: 250px;
+
+}
+.number-page{
+    text-align: center;
+    margin-left: 250px;
+}
