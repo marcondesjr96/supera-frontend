@@ -4,7 +4,7 @@ import './TableComponent.css';
 
 
 
-const TransferTable =({ searchData }) => {
+const TransferTable =({ searchData, saldoTotal, saldoTotalPeriodo }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 1;
 
@@ -13,12 +13,13 @@ const TransferTable =({ searchData }) => {
   };
 
   const totalPages = Math.ceil(searchData.length / itemsPerPage);
+  console.log(saldoTotal);
 
   return (
     <div>
       <h2 className='text-center'>Transferências</h2>
-      <label className='saldo-total'>Saldo Total: R$ 50,00</label>
-      <label className='saldo-total-periodo'>Saldo no Período: R$ 50,00</label>
+      <label className='saldo-total'>Saldo Total: R$ {saldoTotal}</label>
+      <label className='saldo-total-periodo'>Saldo no Período: R$ {saldoTotalPeriodo}</label>
       <table className="table table-striped mx-4">
         <thead>
           <tr>

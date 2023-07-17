@@ -7,6 +7,9 @@ import axios from 'axios';
 
 export default function App() {
   const [searchData, setSearchData] = useState([]);
+  const [saldoTotal, setSaldoTotal] = useState(0);
+  const [saldoTotalPeriodo, setSaldoTotalPeriodo] = useState(0);
+
 
   const handleSearch = async (accountId, dataInicial, dataFinal, nomeOperadorTransacao) => {
     try {
@@ -34,6 +37,28 @@ export default function App() {
       });
 
       setSearchData(response.data.content);
+
+      const responseSaldoTotal = await axios.get('http://localhost:8080/api/transferencia/valor-total',{
+        params: {
+          contaId: accountId
+        }
+      });     
+      
+      const saldoTotal  = responseSaldoTotal.data;
+      setSaldoTotal(saldoTotal);
+
+
+      const responseSaldoPeriodo = await axios.get('http://localhost:8080/api/transferencia/valor-total', {
+        params: {
+          contaId: accountId,
+          dataInicial: dataInicial,
+          dataFinal: dataFinal
+        }
+      });
+      const saldoTotalPeriodo= responseSaldoPeriodo.data;
+  
+      setSaldoTotalPeriodo(saldoTotalPeriodo);
+  
     } catch (error) {
       console.error('Erro ao buscar transferências:', error);
     }
@@ -45,7 +70,11 @@ export default function App() {
       <br />
       <br />
       <br />
-      <TableComponent searchData={searchData} />
+      <TableComponent
+        searchData={searchData}
+        saldoTotal={saldoTotal}
+        saldoTotalPeriodo={saldoTotalPeriodo}
+      />
     </div>
   );
 }
