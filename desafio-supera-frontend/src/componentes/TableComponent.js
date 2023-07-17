@@ -1,19 +1,20 @@
-import React, {useState}from 'react';
+import React from 'react';
 import { format } from 'date-fns';
 import './TableComponent.css';
 
 
 
-const TransferTable =({ searchData, saldoTotal, saldoTotalPeriodo }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 1;
+const TransferTable =({ searchData, saldoTotal, saldoTotalPeriodo, currentPage, setCurrentPage }) => {
+  const itemsPerPage = 4;
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentData = searchData.slice(startIndex, endIndex);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   const totalPages = Math.ceil(searchData.length / itemsPerPage);
-  console.log(saldoTotal);
 
   return (
     <div>
@@ -30,7 +31,7 @@ const TransferTable =({ searchData, saldoTotal, saldoTotalPeriodo }) => {
           </tr>
         </thead>
         <tbody>
-          {searchData.map((data) => (
+          {currentData.map((data) => (
             <tr key={data.id}>
               <td>{format(new Date(data.dataTransferencia), 'dd/MM/yyyy')}</td>
               <td>R$ {data.valor}</td>
@@ -44,22 +45,23 @@ const TransferTable =({ searchData, saldoTotal, saldoTotalPeriodo }) => {
         {searchData.length > itemsPerPage && (
           <div className="buttons d-flex justify-content-center">
             <button
-            className='button-anterior'
+              className="button-anterior"
               onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
+              disabled={currentPage === 0}
             >
               Anterior
             </button>
             <p className="number-page text-center">
-              Página {currentPage} de {totalPages}
+               Página {currentPage + 1} de {totalPages}
             </p>
             <button
-            className='button-proximo'
+              className="button-proximo"
               onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
+              disabled={currentPage === totalPages - 1}
             >
               Próxima
             </button>
+
           </div>
         )}
       </div>
@@ -68,3 +70,4 @@ const TransferTable =({ searchData, saldoTotal, saldoTotalPeriodo }) => {
 };
 
 export default TransferTable;
+

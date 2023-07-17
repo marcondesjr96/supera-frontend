@@ -9,13 +9,14 @@ export default function App() {
   const [searchData, setSearchData] = useState([]);
   const [saldoTotal, setSaldoTotal] = useState(0);
   const [saldoTotalPeriodo, setSaldoTotalPeriodo] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
 
 
   const handleSearch = async (accountId, dataInicial, dataFinal, nomeOperadorTransacao) => {
     try {
       const params = {
-        page: 0,
-        size: 8,
+        page: currentPage,
+        size: 4,
         contaId: accountId
       };
   
@@ -74,7 +75,10 @@ export default function App() {
         searchData={searchData}
         saldoTotal={saldoTotal}
         saldoTotalPeriodo={saldoTotalPeriodo}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
+
     </div>
   );
 }
