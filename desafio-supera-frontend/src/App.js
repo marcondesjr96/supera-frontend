@@ -16,7 +16,7 @@ export default function App() {
     try {
       const params = {
         page: currentPage,
-        size: 4,
+        size: 8,
         contaId: accountId
       };
   
