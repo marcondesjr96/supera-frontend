@@ -40,7 +40,7 @@ Este comando irá iniciar a aplicação React e abrirá automaticamente uma jane
 
 Agora você poderá interagir com a aplicação, realizar pesquisas de transferências e visualizar os resultados na tabela.
 
-![Exibição da tela](assets/telaReact.png)
+![Exibição da tela](desafio-supera-frontend/assets/telaReact.png)
 
 Nesta tela, o usuário precisa passar o id da conta para habilitar o botão de pesquisa. Os Filtros como Data Inicio, Data fim e Nome do operador transacionado é opcional. Caso o usuário queira filtrar por algum desses campos, é só preencher e pesquisar!
 
